@@ -1,16 +1,15 @@
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   balena-push:
     runs-on: ubuntu-latest
-    name: Push changes to balenaCloud
     steps:
-    - uses: actions/checkout@master
-    - name: Push action step
-      id: push
+    - uses: actions/checkout@v1
+    - name: Push release to balenaCloud
       uses: balena-io-playground/balena-cloud-github-action@v0.1
       with:
         balena_token: ${{ secrets.BALENA_TOKEN }}
         balena_app_name: 'python-hello-world'
-    - name: Get the release
-      run: echo "New release created ${{ steps.push.outputs.release }}"
