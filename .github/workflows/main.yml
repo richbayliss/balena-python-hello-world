@@ -9,7 +9,7 @@ jobs:
       id: push
       uses: balena-io-playground/balena-cloud-github-action@v0.1
       with:
-        balena-token: 'abcde12345'
-        balena-app-name: 'python-hello-world'
+        balena_token: ${{ secrets.BALENA_TOKEN }}
+        balena_app_name: 'python-hello-world'
     - name: Get the release
       run: echo "New release created ${{ steps.push.outputs.release }}"
