@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Push changes to balenaCloud
     steps:
+    - uses: actions/checkout@master
     - name: Push action step
       id: push
       uses: balena-io-playground/balena-cloud-github-action@v0.1
